@@ -34,7 +34,7 @@ const RandomQuote = () => {
                 setQuote(result[0]); // Set the first quote from the response
             }
         } catch (error) {
-            console.error('Error fetching quote:', error);
+            
         }
     };
 
