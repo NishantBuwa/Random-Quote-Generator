@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './RandomQuote.css';
 import twitter from './Assests/twitter.png';
 import reload from './Assests/reload.png';
-
 
 const RandomQuote = () => {
     const categories = [
@@ -26,7 +25,7 @@ const RandomQuote = () => {
             const response = await fetch(
                 `https://api.api-ninjas.com/v1/quotes?category=${randomCategory}`,
                 {
-                    headers: { 'X-Api-Key': process.env.REACT_APP_API_KEY },
+                    headers: { 'X-Api-Key': 'aDkYjmDEvh4TBrqerGV6mw==6yFJwKQs9lVOPXia' },
                 }
             );
             const result = await response.json();
@@ -34,11 +33,10 @@ const RandomQuote = () => {
                 setQuote(result[0]); // Set the first quote from the response
             }
         } catch (error) {
-            
+            console.error('Error fetching quote:', error);
         }
     };
 
-    
     const twitter_button = () => {
         window.open(`https://twitter.com/intent/tweet?text=${quote.quote}`);
     };
